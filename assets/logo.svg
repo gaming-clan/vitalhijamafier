@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 300" role="img" aria-label="Vital Hixhama Fier">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3d99b"/>
+      <stop offset="0.45" stop-color="#c89b4a"/>
+      <stop offset="1" stop-color="#9d7327"/>
+    </linearGradient>
+  </defs>
+  <g fill="none" stroke="url(#gold)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- cupping jar -->
+    <path d="M70 150 q0 -55 38 -55 q38 0 38 55 z"/>
+    <line x1="108" y1="95" x2="108" y2="78"/>
+    <rect x="100" y="68" width="16" height="12" rx="3" fill="url(#gold)" stroke="none"/>
+    <ellipse cx="108" cy="150" rx="44" ry="8" fill="url(#gold)" stroke="none"/>
+    <path d="M101 150 q0 -22 7 -22 q7 0 7 22 z" fill="url(#gold)" stroke="none"/>
+    <!-- table line -->
+    <path d="M40 168 q70 -20 250 -8" stroke-width="5"/>
+    <!-- hand reaching -->
+    <path d="M175 120 q40 -28 95 -22 q22 2 26 14 q3 9 -8 12 l-44 4
+             q14 -2 24 2 q10 5 2 12 q-8 6 -22 5 l-30 -3
+             q12 0 20 4 q9 5 1 11 q-7 6 -20 4 l-22 -3
+             q9 1 15 5 q7 5 0 10 q-7 4 -18 2 q-26 -5 -41 -22"
+          stroke-width="4" fill="none"/>
+  </g>
+  <text x="160" y="225" text-anchor="middle" font-family="'Brush Script MT','Segoe Script',cursive" font-size="78" fill="url(#gold)" font-style="italic">Vital</text>
+  <text x="160" y="262" text-anchor="middle" font-family="'Trebuchet MS',sans-serif" font-size="26" letter-spacing="8" fill="url(#gold)">HIXHAMA FIER</text>
+</svg>
