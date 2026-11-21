@@ -239,12 +239,20 @@ a:hover { color: var(--lilac); }
 .footer-links, .footer-social { display: flex; flex-direction: column; gap: 10px; }
 .footer-links a, .footer-social a { color: #d6c7e8; font-size: .92rem; }
 .footer-links a:hover, .footer-social a:hover { color: var(--lilac-light); }
+.footer-partners { padding: 0 22px 30px; }
+.footer-partners h2 { color: #e8ddf4; font: 500 1rem var(--font-body); margin-bottom: 12px; }
+.partner-links { display: flex; flex-wrap: wrap; gap: 8px 18px; }
+.partner-links a { color: #d6c7e8; font-size: .82rem; }
+.partner-links a:hover { color: var(--lilac-light); }
 .footer-bottom {
   border-top: 1px solid rgba(255,255,255,.1); padding: 20px 0 26px;
   display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
   font-size: .8rem; color: #ab9bc0;
 }
 .footer-bottom .disclaimer { color: #8a7aa0; }
+.footer-bottom .maintenance { flex-basis: 100%; }
+.footer-bottom .maintenance a { color: #d6c7e8; }
+.footer-bottom .maintenance a:hover { color: var(--lilac-light); }
 
 /* ===== Floating WhatsApp ===== */
 .floating-wa {
