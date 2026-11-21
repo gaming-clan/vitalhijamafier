@@ -13,7 +13,7 @@ index.html        # Faqja kryesore (një faqe, me seksione)
 styles.css        # Stilet dhe paleta e ngjyrave (dy nuanca lejla)
 script.js         # Menyja mobile, efekt shkrimi, animacionet, formulari WhatsApp
 assets/
-  favicon.svg     # Ikona e faqes (shkronja "L" në lejla)
+  favicon.png     # Ikona me simbolin e fytyrës nga logoja Lona
   logo.png        # Logoja e Lona Health and Beauty Clinic
   lona-*.jpeg     # Fotot reale të ambienteve dhe pajisjeve të klinikës
   lona-clinic-tour.mp4        # Video e ambienteve të klinikës
@@ -22,8 +22,8 @@ robots.txt        # Udhëzime për motorët e kërkimit
 sitemap.xml       # Sitemap-i i faqes së vetme
 ```
 
-Logoja reale e klinikës përdoret në header dhe footer. Faviconi është ikonë e thjeshtë
-me shkronjën "L".
+Logoja reale e klinikës përdoret në header dhe footer. Faviconi përdor simbolin e fytyrës
+nga logoja, mbi sfondin rozë të markës.
 
 ## Seksionet
 - **Hyrje (Hero)** — fokus te "masazhe në Fier" + thirrja për rezervim
