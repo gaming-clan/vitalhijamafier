@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: Hiq komentin dhe vendos domainin kur të caktohet.
+# Sitemap: https://YOUR-DOMAIN-HERE/sitemap.xml
