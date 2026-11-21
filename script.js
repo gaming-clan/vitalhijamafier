@@ -4,7 +4,7 @@
 
   // --- Konfigurim i shpejtë (ndrysho këtu të dhënat reale) ---
   const CONFIG = {
-    phone: "355600000000",          // numri për WhatsApp/telefon, pa "+" për wa.me
+    phone: "355693576145",          // numri për WhatsApp/telefon, pa "+" për wa.me
     whatsappText: "Përshëndetje! Dua të rezervoj një termin për masazh në Lona Clinic.",
   };
 
