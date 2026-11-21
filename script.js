@@ -1,11 +1,11 @@
-/* ===== Vital Hixhama Fier — Skriptet ===== */
+/* ===== Lona Health and Beauty Clinic — Skriptet ===== */
 (function () {
   "use strict";
 
   // --- Konfigurim i shpejtë (ndrysho këtu të dhënat reale) ---
   const CONFIG = {
     phone: "355600000000",          // numri për WhatsApp/telefon, pa "+" për wa.me
-    whatsappText: "Përshëndetje! Dua të rezervoj një termin për hixhame.",
+    whatsappText: "Përshëndetje! Dua të rezervoj një termin për masazh në Lona Clinic.",
   };
 
   // Vendos numrin e WhatsApp dhe tekstin paraprak në lidhjet përkatëse
@@ -83,7 +83,7 @@
       const mesazhi = form.mesazhi.value.trim();
 
       // Përpilon mesazhin dhe e dërgon në WhatsApp
-      let msg = "Kërkesë e re rezervimi — Vital Hixhama Fier%0A";
+      let msg = "Kërkesë e re rezervimi — Lona Health and Beauty Clinic%0A";
       msg += "Emri: " + emri + "%0A";
       msg += "Telefoni: " + telefoni + "%0A";
       msg += "Shërbimi: " + sherbimi + "%0A";

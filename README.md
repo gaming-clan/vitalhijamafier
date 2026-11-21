@@ -1,6 +1,8 @@
-# Vital Hixhama Fier — Website
+# Lona Health and Beauty Clinic — Website
 
-Faqe interneti për klinikën e terapisë me kupa (hixhame) **Vital Hixhama Fier**, Fier, Shqipëri.
+Faqe interneti për **Lona Health and Beauty Clinic**, Fier, Shqipëri — klinikë shëndeti
+dhe bukurie që ofron **masazhe** (relaksuese & terapeutike), **hixhame** (terapi me kupa)
+dhe **trajtime bukurie**.
 
 Faqe statike (HTML / CSS / JavaScript), pa varësi nga ndonjë framework — hapet direkt në çdo shfletues.
 
@@ -8,35 +10,44 @@ Faqe statike (HTML / CSS / JavaScript), pa varësi nga ndonjë framework — hap
 
 ```
 index.html        # Faqja kryesore (një faqe, me seksione)
-styles.css        # Stilet dhe paleta e ngjyrave të brandit
+styles.css        # Stilet dhe paleta e ngjyrave (dy nuanca lejla)
 script.js         # Menyja mobile, animacionet, formulari i rezervimit
 assets/
-  logo.svg        # Logoja (rikrijim në SVG i konceptit kupë + dorë + "Vital")
-  favicon.svg     # Ikona e faqes
+  favicon.svg     # Ikona e faqes (shkronja "L" në lejla)
 ```
 
+> **Logoja:** hiqet për momentin — do të vendoset më vonë nga klientja. Në vend të saj
+> përdoret një *wordmark* tekstual ("Lona · Health & Beauty Clinic"). Kur të vijë logoja,
+> zëvendëso `.brand` në `index.html` me `<img>` dhe vendos skedarin te `assets/`.
+
 ## Seksionet
-- **Hyrje (Hero)** — prezantimi dhe thirrja për rezervim
-- **Çfarë është Hixhama** — shpjegim + dy llojet (e thatë / e lagësht)
-- **Shërbimet** — kartat e shërbimeve
-- **Përfitimet** — pse të zgjedhësh hixhamen
+- **Hyrje (Hero)** — fokus te "masazhe në Fier" + thirrja për rezervim
+- **Rreth Nesh** — prezantimi i klinikës (masazh & hixhame)
+- **Shërbimet** — masazh relaksues, masazh terapeutik, hixhame, trajtime bukurie
+- **Përfitimet** — pse një masazh
 - **Çmimet** — paketat orientuese
 - **Rezervo / Kontakti** — formular që dërgon kërkesën në WhatsApp
 
-## Si ta personalizosh
+## SEO
+- Fokus te fjalëkyçi **"masazhe Fier"** (titull, meta description, keywords, H1 dhe përmbajtje)
+- Të dhëna të strukturuara **JSON-LD `HealthAndBeautyBusiness`** me `areaServed: Fier` dhe shërbimet
+- `lang="sq"`, Open Graph për shpërndarje në rrjete sociale
 
-1. **Numri i telefonit / WhatsApp** — ndrysho `CONFIG.phone` te `script.js`
-   (formati ndërkombëtar pa `+`, p.sh. `355691234567`). Përditëso edhe numrin
-   te seksioni i kontaktit në `index.html`.
-2. **Email & adresa** — te seksioni `#kontakti` në `index.html`.
-3. **Çmimet** — te seksioni `#cmimet` në `index.html`.
-4. **Rrjetet sociale** — vendos lidhjet reale te footer-i (Instagram / Facebook).
-5. **Logoja** — zëvendëso `assets/logo.svg` me logon origjinale
-   (PNG ose SVG), duke ruajtur të njëjtin emër ose duke përditësuar referencat.
+## Paleta e ngjyrave (dy nuanca lejla)
+- `--lilac-light: #c9a7e8` (lejla e lehtë)
+- `--lilac-dark: #5b3a86` (lejla e errët)
+
+Të dyja ndryshohen te `:root` në fillim të `styles.css`.
+
+## Si ta personalizosh
+1. **Numri WhatsApp/telefon** — `CONFIG.phone` te `script.js` (format pa `+`, p.sh. `355691234567`); përditëso edhe te `#kontakti` në `index.html`.
+2. **Email & adresa** — te seksioni `#kontakti`.
+3. **Çmimet** — te seksioni `#cmimet`.
+4. **Rrjetet sociale** — linket te footer-i.
+5. **Adresa e saktë** — përditëso edhe te blloku JSON-LD në `<head>`.
 
 ## Shfaqja lokale
-
-Thjesht hap `index.html` në shfletues, ose:
+Hape me një server lokal (p.sh. **Live Server** në VS Code), ose:
 
 ```bash
 python3 -m http.server 8000
