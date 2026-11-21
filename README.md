@@ -11,10 +11,13 @@ Faqe statike (HTML / CSS / JavaScript), pa varësi nga ndonjë framework — hap
 ```
 index.html        # Faqja kryesore (një faqe, me seksione)
 styles.css        # Stilet dhe paleta e ngjyrave (dy nuanca lejla)
-script.js         # Menyja mobile, animacionet, formulari i rezervimit
+script.js         # Menyja mobile, efekt shkrimi, animacionet, formulari WhatsApp
 assets/
   favicon.svg     # Ikona e faqes (shkronja "L" në lejla)
   logo.png        # Logoja e Lona Health and Beauty Clinic
+  lona-*.jpeg     # Fotot reale të ambienteve dhe pajisjeve të klinikës
+  lona-clinic-tour.mp4        # Video e ambienteve të klinikës
+  lona-clinic-tour-poster.jpg # Poster i videos
 robots.txt        # Udhëzime për motorët e kërkimit
 sitemap.xml       # Sitemap-i i faqes së vetme
 ```
@@ -26,6 +29,7 @@ me shkronjën "L".
 - **Hyrje (Hero)** — fokus te "masazhe në Fier" + thirrja për rezervim
 - **Rreth Nesh** — prezantimi i klinikës (masazh & hixhame)
 - **Shërbimet** — masazh relaksues, masazh terapeutik, hixhame, trajtime bukurie
+- **Galeria** — foto dhe video nga ambientet reale të klinikës
 - **Përfitimet** — pse një masazh
 - **Çmimet** — paketat orientuese
 - **Rezervo / Kontakti** — formular që dërgon kërkesën në WhatsApp
