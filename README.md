@@ -11,19 +11,25 @@ Faqe statike (HTML / CSS / JavaScript), pa varësi nga ndonjë framework — hap
 ```
 index.html        # Faqja kryesore (një faqe, me seksione)
 styles.css        # Stilet dhe paleta e ngjyrave (dy nuanca lejla)
-script.js         # Menyja mobile, animacionet, formulari i rezervimit
+script.js         # Menyja mobile, efekt shkrimi, animacionet, formulari WhatsApp
 assets/
-  favicon.svg     # Ikona e faqes (shkronja "L" në lejla)
+  favicon.png     # Ikona me simbolin e fytyrës nga logoja Lona
+  logo.png        # Logoja e Lona Health and Beauty Clinic
+  lona-*.jpeg     # Fotot reale të ambienteve dhe pajisjeve të klinikës
+  lona-clinic-tour.mp4        # Video e ambienteve të klinikës
+  lona-clinic-tour-poster.jpg # Poster i videos
+robots.txt        # Udhëzime për motorët e kërkimit
+sitemap.xml       # Sitemap-i i faqes së vetme
 ```
 
-> **Logoja:** hiqet për momentin — do të vendoset më vonë nga klientja. Në vend të saj
-> përdoret një *wordmark* tekstual ("Lona · Health & Beauty Clinic"). Kur të vijë logoja,
-> zëvendëso `.brand` në `index.html` me `<img>` dhe vendos skedarin te `assets/`.
+Logoja reale e klinikës përdoret në header dhe footer. Faviconi përdor simbolin e fytyrës
+nga logoja, mbi sfondin rozë të markës.
 
 ## Seksionet
 - **Hyrje (Hero)** — fokus te "masazhe në Fier" + thirrja për rezervim
 - **Rreth Nesh** — prezantimi i klinikës (masazh & hixhame)
 - **Shërbimet** — masazh relaksues, masazh terapeutik, hixhame, trajtime bukurie
+- **Galeria** — foto dhe video nga ambientet reale të klinikës
 - **Përfitimet** — pse një masazh
 - **Çmimet** — paketat orientuese
 - **Rezervo / Kontakti** — formular që dërgon kërkesën në WhatsApp
@@ -32,6 +38,7 @@ assets/
 - Fokus te fjalëkyçi **"masazhe Fier"** (titull, meta description, keywords, H1 dhe përmbajtje)
 - Të dhëna të strukturuara **JSON-LD `HealthAndBeautyBusiness`** me `areaServed: Fier` dhe shërbimet
 - `lang="sq"`, Open Graph për shpërndarje në rrjete sociale
+- `robots.txt` dhe `sitemap.xml` për indeksimin e faqes së vetme
 
 ## Paleta e ngjyrave (dy nuanca lejla)
 - `--lilac-light: #c9a7e8` (lejla e lehtë)
@@ -45,6 +52,9 @@ Të dyja ndryshohen te `:root` në fillim të `styles.css`.
 3. **Çmimet** — te seksioni `#cmimet`.
 4. **Rrjetet sociale** — linket te footer-i.
 5. **Adresa e saktë** — përditëso edhe te blloku JSON-LD në `<head>`.
+6. **Domaini** — kur të caktohet, vendos URL-në përfundimtare te `<loc>` në `sitemap.xml`
+   (hiq komentet), shto rreshtin `Sitemap:` në `robots.txt` dhe plotëso canonical/URL-të
+   absolute të SEO metadata në `index.html`.
 
 ## Shfaqja lokale
 Hape me një server lokal (p.sh. **Live Server** në VS Code), ose:
