@@ -48,7 +48,7 @@ Të dyja ndryshohen te `:root` në fillim të `styles.css`.
 
 ## Si ta personalizosh
 1. **Numri WhatsApp/telefon** — `CONFIG.phone` te `script.js` (format pa `+`, p.sh. `355691234567`); përditëso edhe te `#kontakti` në `index.html`.
-2. **Email & adresa** — te seksioni `#kontakti`.
+2. **Adresa** — te seksioni `#kontakti` (dhe te blloku JSON-LD në `<head>`).
 3. **Çmimet** — te seksioni `#cmimet`.
 4. **Rrjetet sociale** — linket te footer-i.
 5. **Adresa e saktë** — përditëso edhe te blloku JSON-LD në `<head>`.
