@@ -379,3 +379,27 @@ a:hover { color: var(--lilac); }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
 }
+
+/* ===== Hero aurora — shtresë dekorative e re, lëvizje delikate (additive) ===== */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(38% 42% at 22% 28%, rgba(201,167,232,.45), transparent 60%),
+    radial-gradient(34% 40% at 78% 72%, rgba(255,229,173,.22), transparent 60%),
+    radial-gradient(30% 36% at 60% 16%, rgba(255,255,255,.16), transparent 60%);
+  filter: blur(16px);
+  animation: hero-aurora 20s ease-in-out infinite alternate;
+  will-change: transform, opacity;
+}
+@keyframes hero-aurora {
+  0%   { transform: translate3d(-3%, -2%, 0) scale(1.05); opacity: .85; }
+  50%  { transform: translate3d(2%, 1%, 0) scale(1.12); opacity: 1; }
+  100% { transform: translate3d(3%, 3%, 0) scale(1.07); opacity: .8; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero::before { animation: none; }
+}
