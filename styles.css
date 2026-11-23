@@ -474,3 +474,19 @@ a:hover { color: var(--lilac); }
 @media (max-width: 560px) {
   .back-to-top { width: 44px; height: 44px; bottom: 80px; }
 }
+
+/* ===== Hixhama info section (additive) ===== */
+.info-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; align-items: start; margin-top: 30px; }
+#hixhama .mini-h { margin: 22px 0 8px; color: var(--lilac-dark); font-size: 1.2rem; }
+#hixhama .info-card .check-list { margin-top: 16px; }
+.callout {
+  max-width: 840px; margin: 32px auto 0; padding: 16px 22px; border-radius: 14px;
+  background: var(--lilac-soft2); border-left: 4px solid var(--lilac);
+  color: var(--ink); font-size: .92rem; line-height: 1.6;
+}
+.hixhama-quote {
+  text-align: center; font-family: var(--font-head); font-style: italic;
+  font-size: clamp(1.25rem, 2.6vw, 1.6rem); color: var(--lilac-dark); margin: 28px auto 0;
+}
+.hixhama-cta { text-align: center; margin-top: 24px; }
+@media (max-width: 900px) { .info-2col { grid-template-columns: 1fr; } }
