@@ -403,3 +403,33 @@ a:hover { color: var(--lilac); }
 @media (prefers-reduced-motion: reduce) {
   .hero::before { animation: none; }
 }
+
+/* ===== Pricing carousel (additive) ===== */
+.carousel { position: relative; display: flex; align-items: center; gap: 8px; }
+.carousel-viewport {
+  position: relative; flex: 1 1 auto; overflow-x: auto;
+  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.carousel-viewport::-webkit-scrollbar { display: none; }
+.carousel-track { display: flex; gap: 26px; padding: 18px 6px; }
+.carousel-track .price-card { flex: 0 0 300px; max-width: 86vw; scroll-snap-align: center; }
+.carousel-track .price-card.featured { transform: none; }
+.carousel-btn {
+  flex: 0 0 auto; width: 46px; height: 46px; border-radius: 50%; cursor: pointer; border: none;
+  color: #fff; font-size: 1.7rem; line-height: 1; display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--lilac-light), var(--lilac-dark));
+  box-shadow: 0 8px 20px rgba(91,58,134,.3); transition: transform .2s, opacity .2s;
+}
+.carousel-btn:hover { transform: scale(1.08); }
+.carousel-btn:focus-visible { outline: 3px solid var(--lilac-tint); outline-offset: 2px; }
+.carousel-dots { display: flex; justify-content: center; gap: 9px; margin-top: 12px; }
+.carousel-dots button {
+  width: 10px; height: 10px; border-radius: 50%; border: none; cursor: pointer; padding: 0;
+  background: var(--lilac-tint); transition: transform .2s, background .2s;
+}
+.carousel-dots button[aria-current="true"] { background: var(--lilac-dark); transform: scale(1.35); }
+@media (max-width: 560px) {
+  .carousel-btn { width: 40px; height: 40px; font-size: 1.5rem; }
+  .carousel-track .price-card { flex-basis: 85vw; }
+}
