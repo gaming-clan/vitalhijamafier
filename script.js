@@ -117,3 +117,73 @@
     });
   }
 })();
+
+/* ===== Pricing carousel — next/previous, dots, auto-rotate ===== */
+(function () {
+  "use strict";
+  const root = document.getElementById("price-carousel");
+  const track = document.getElementById("price-track");
+  const dotsWrap = document.getElementById("price-dots");
+  if (!root || !track || !dotsWrap) return;
+
+  const viewport = root.querySelector(".carousel-viewport");
+  const prevBtn = root.querySelector(".carousel-prev");
+  const nextBtn = root.querySelector(".carousel-next");
+  const cards = Array.prototype.slice.call(track.children);
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let index = 0;
+
+  // Build dot indicators
+  cards.forEach(function (c, i) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.setAttribute("aria-label", "Shko te paketa " + (i + 1));
+    b.addEventListener("click", function () { goTo(i); });
+    dotsWrap.appendChild(b);
+  });
+  const dots = Array.prototype.slice.call(dotsWrap.children);
+
+  function setActive(i) {
+    dots.forEach(function (d, di) { d.setAttribute("aria-current", di === i ? "true" : "false"); });
+  }
+
+  function goTo(i) {
+    index = (i + cards.length) % cards.length;
+    const card = cards[index];
+    const left = card.offsetLeft - (viewport.clientWidth - card.offsetWidth) / 2;
+    viewport.scrollTo({ left: left, behavior: reduce ? "auto" : "smooth" });
+    setActive(index);
+  }
+
+  if (prevBtn) prevBtn.addEventListener("click", function () { goTo(index - 1); });
+  if (nextBtn) nextBtn.addEventListener("click", function () { goTo(index + 1); });
+
+  // Keep active dot in sync with manual swipe/scroll
+  let st;
+  viewport.addEventListener("scroll", function () {
+    clearTimeout(st);
+    st = setTimeout(function () {
+      const center = viewport.scrollLeft + viewport.clientWidth / 2;
+      let best = 0, bestD = Infinity;
+      cards.forEach(function (c, i) {
+        const cc = c.offsetLeft + c.offsetWidth / 2;
+        const d = Math.abs(cc - center);
+        if (d < bestD) { bestD = d; best = i; }
+      });
+      index = best;
+      setActive(index);
+    }, 90);
+  }, { passive: true });
+
+  setActive(0);
+
+  // Gentle auto-rotate (pauses on interaction; off for reduced motion)
+  if (!reduce) {
+    let timer = null;
+    const start = function () { if (!timer) timer = setInterval(function () { goTo(index + 1); }, 6000); };
+    const stop = function () { if (timer) { clearInterval(timer); timer = null; } };
+    ["mouseenter", "focusin", "touchstart"].forEach(function (ev) { root.addEventListener(ev, stop, { passive: true }); });
+    ["mouseleave", "focusout"].forEach(function (ev) { root.addEventListener(ev, start); });
+    start();
+  }
+})();
