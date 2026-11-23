@@ -456,3 +456,21 @@ a:hover { color: var(--lilac); }
 .carousel-track .price-card.featured .price { margin: 0 0 20px; white-space: normal; }
 .carousel-track .price-card.featured ul { margin: 0 0 26px; text-align: left; }
 .carousel-track .price-card.featured .btn { width: auto; justify-self: auto; }
+
+/* ===== Back to top button (additive) ===== */
+.back-to-top {
+  position: fixed; right: 22px; bottom: 88px; z-index: 60;
+  width: 48px; height: 48px; border-radius: 50%; cursor: pointer; border: none;
+  display: grid; place-items: center; color: #fff;
+  background: linear-gradient(135deg, var(--lilac-light), var(--lilac-dark));
+  box-shadow: 0 8px 22px rgba(138,58,82,.4);
+  opacity: 0; visibility: hidden; transform: translateY(12px);
+  transition: opacity .3s ease, transform .3s ease, visibility .3s;
+}
+.back-to-top.visible { opacity: 1; visibility: visible; transform: none; }
+.back-to-top:hover { transform: translateY(-2px) scale(1.08); }
+.back-to-top:focus-visible { outline: 3px solid var(--lilac-tint); outline-offset: 2px; }
+.back-to-top svg { width: 22px; height: 22px; }
+@media (max-width: 560px) {
+  .back-to-top { width: 44px; height: 44px; bottom: 80px; }
+}
