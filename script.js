@@ -14,35 +14,23 @@
     a.href = waBase + "?text=" + encodeURIComponent(CONFIG.whatsappText);
   });
 
-  // Shkrimi gradual i titullit të kryefaqes
-  const typewriter = document.querySelector("[data-typewriter]");
+  // Zbulim si shkrim dore, me rishfaqje të fjalëve pa kursor.
+  const handwriting = document.querySelector("[data-handwriting]");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (typewriter && !reduceMotion) {
+  if (handwriting && !reduceMotion) {
     const words = ["qetësi", "relaksim", "mirëqenie"];
     let wordIndex = 0;
-    let charIndex = words[0].length;
-    let deleting = true;
 
-    function typeNext() {
-      const word = words[wordIndex];
-      charIndex += deleting ? -1 : 1;
-      typewriter.textContent = word.slice(0, charIndex);
-
-      if (deleting && charIndex === 0) {
-        deleting = false;
-        wordIndex = (wordIndex + 1) % words.length;
-        window.setTimeout(typeNext, 320);
-        return;
-      }
-      if (!deleting && charIndex === word.length) {
-        deleting = true;
-        window.setTimeout(typeNext, 1500);
-        return;
-      }
-      window.setTimeout(typeNext, deleting ? 65 : 105);
+    function drawNextWord() {
+      wordIndex = (wordIndex + 1) % words.length;
+      handwriting.textContent = words[wordIndex];
+      handwriting.style.animation = "none";
+      void handwriting.offsetWidth;
+      handwriting.style.animation = "";
+      window.setTimeout(drawNextWord, 3600);
     }
 
-    window.setTimeout(typeNext, 1200);
+    window.setTimeout(drawNextWord, 4200);
   }
 
   // --- Menyja mobile ---

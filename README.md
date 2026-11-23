@@ -1,8 +1,7 @@
 # Lona Health and Beauty Clinic — Website
 
-Faqe interneti për **Lona Health and Beauty Clinic**, Fier, Shqipëri — klinikë shëndeti
-dhe bukurie që ofron **masazhe** (relaksuese & terapeutike), **hixhame** (terapi me kupa)
-dhe **trajtime bukurie**.
+Faqe interneti për **Lona Health and Beauty Clinic**, Fier, Shqipëri — klinikë bukurie
+që ofron trajtime fytyre, masazhe dhe terapi relaksuese.
 
 Faqe statike (HTML / CSS / JavaScript), pa varësi nga ndonjë framework — hapet direkt në çdo shfletues.
 
@@ -10,8 +9,8 @@ Faqe statike (HTML / CSS / JavaScript), pa varësi nga ndonjë framework — hap
 
 ```
 index.html        # Faqja kryesore (një faqe, me seksione)
-styles.css        # Stilet dhe paleta e ngjyrave (dy nuanca lejla)
-script.js         # Menyja mobile, efekt shkrimi, animacionet, formulari WhatsApp
+styles.css        # Stilet dhe paleta rozë e artë
+script.js         # Menyja mobile, efekti i shkrimit dore, animacionet, formulari WhatsApp
 assets/
   favicon.png     # Ikona me simbolin e fytyrës nga logoja Lona
   logo.png        # Logoja e Lona Health and Beauty Clinic
@@ -27,11 +26,11 @@ nga logoja, mbi sfondin rozë të markës.
 
 ## Seksionet
 - **Hyrje (Hero)** — fokus te "masazhe në Fier" + thirrja për rezervim
-- **Rreth Nesh** — prezantimi i klinikës (masazh & hixhame)
-- **Shërbimet** — masazh relaksues, masazh terapeutik, hixhame, trajtime bukurie
+- **Rreth Nesh** — prezantimi i trajtimeve të fytyrës dhe masazheve
+- **Shërbimet** — Hydrofacial, Dermaroller, masazhe dhe terapi relaksuese
 - **Galeria** — foto dhe video nga ambientet reale të klinikës
 - **Përfitimet** — pse një masazh
-- **Çmimet** — paketat orientuese
+- **Çmimet** — gjashtë shërbimet dhe çmimet e tyre
 - **Rezervo / Kontakti** — formular që dërgon kërkesën në WhatsApp
 
 ## SEO
@@ -40,11 +39,11 @@ nga logoja, mbi sfondin rozë të markës.
 - `lang="sq"`, Open Graph për shpërndarje në rrjete sociale
 - `robots.txt` dhe `sitemap.xml` për indeksimin e faqes së vetme
 
-## Paleta e ngjyrave (dy nuanca lejla)
-- `--lilac-light: #c9a7e8` (lejla e lehtë)
-- `--lilac-dark: #5b3a86` (lejla e errët)
+## Paleta e ngjyrave
+- Rozë e butë dhe rozë e thellë për sfondet, titujt dhe butonat
+- Ari për detajet dhe theksimet
 
-Të dyja ndryshohen te `:root` në fillim të `styles.css`.
+Ngjyrat ndryshohen te `:root` në fillim të `styles.css`.
 
 ## Si ta personalizosh
 1. **Numri WhatsApp/telefon** — `CONFIG.phone` te `script.js` (format pa `+`, p.sh. `355691234567`); përditëso edhe te `#kontakti` në `index.html`.
