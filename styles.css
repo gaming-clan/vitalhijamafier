@@ -449,3 +449,10 @@ a:hover { color: var(--lilac); }
   .carousel-btn { width: 40px; height: 40px; font-size: 1.5rem; }
   .carousel-track .price-card { flex-basis: 85vw; }
 }
+
+/* Featured price card inside the carousel = uniform vertical card (overrides the banner grid) */
+.carousel-track .price-card.featured { display: flex; flex-direction: column; text-align: center; }
+.carousel-track .price-card.featured h3 { margin: 0 0 12px; }
+.carousel-track .price-card.featured .price { margin: 0 0 20px; white-space: normal; }
+.carousel-track .price-card.featured ul { margin: 0 0 26px; text-align: left; }
+.carousel-track .price-card.featured .btn { width: auto; justify-self: auto; }
