@@ -132,13 +132,23 @@
   const cards = Array.prototype.slice.call(track.children);
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   let index = 0;
+  let timer = null;
+
+  function startAuto() {
+    if (reduce || timer) return;
+    timer = setInterval(function () { goTo(index + 1); }, 5000);
+  }
+  function stopAuto() {
+    if (timer) { clearInterval(timer); timer = null; }
+  }
+  function resetAuto() { stopAuto(); startAuto(); } // restart the timer after a manual move
 
   // Build dot indicators
   cards.forEach(function (c, i) {
     const b = document.createElement("button");
     b.type = "button";
     b.setAttribute("aria-label", "Shko te paketa " + (i + 1));
-    b.addEventListener("click", function () { goTo(i); });
+    b.addEventListener("click", function () { goTo(i); resetAuto(); });
     dotsWrap.appendChild(b);
   });
   const dots = Array.prototype.slice.call(dotsWrap.children);
@@ -148,15 +158,15 @@
   }
 
   function goTo(i) {
-    index = (i + cards.length) % cards.length;
+    index = (i + cards.length) % cards.length; // loops back to the first after the last
     const card = cards[index];
     const left = card.offsetLeft - (viewport.clientWidth - card.offsetWidth) / 2;
     viewport.scrollTo({ left: left, behavior: reduce ? "auto" : "smooth" });
     setActive(index);
   }
 
-  if (prevBtn) prevBtn.addEventListener("click", function () { goTo(index - 1); });
-  if (nextBtn) nextBtn.addEventListener("click", function () { goTo(index + 1); });
+  if (prevBtn) prevBtn.addEventListener("click", function () { goTo(index - 1); resetAuto(); });
+  if (nextBtn) nextBtn.addEventListener("click", function () { goTo(index + 1); resetAuto(); });
 
   // Keep active dot in sync with manual swipe/scroll
   let st;
@@ -177,13 +187,14 @@
 
   setActive(0);
 
-  // Gentle auto-rotate (pauses on interaction; off for reduced motion)
+  // Continuous auto-rotate: pauses on hover/focus, briefly after touch; disabled for reduced motion
   if (!reduce) {
-    let timer = null;
-    const start = function () { if (!timer) timer = setInterval(function () { goTo(index + 1); }, 6000); };
-    const stop = function () { if (timer) { clearInterval(timer); timer = null; } };
-    ["mouseenter", "focusin", "touchstart"].forEach(function (ev) { root.addEventListener(ev, stop, { passive: true }); });
-    ["mouseleave", "focusout"].forEach(function (ev) { root.addEventListener(ev, start); });
-    start();
+    root.addEventListener("mouseenter", stopAuto);
+    root.addEventListener("mouseleave", startAuto);
+    root.addEventListener("focusin", stopAuto);
+    root.addEventListener("focusout", startAuto);
+    root.addEventListener("touchstart", stopAuto, { passive: true });
+    root.addEventListener("touchend", function () { setTimeout(startAuto, 2500); }, { passive: true });
+    startAuto();
   }
 })();
