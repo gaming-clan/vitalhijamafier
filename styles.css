@@ -481,3 +481,15 @@ a:hover { color: var(--lilac); }
 .callout strong svg { width: 16px; height: 16px; color: var(--lilac-dark); vertical-align: -3px; margin-right: 2px; }
 /* Quiet dot instead of the ✦ bullet on price lists */
 .price-card ul li::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--lilac); position: absolute; left: 3px; top: .62em; }
+
+/* ===== Social links (footer + contact) ===== */
+.footer-social a { display: inline-flex; align-items: center; gap: 9px; }
+.footer-social a svg { width: 17px; height: 17px; flex: 0 0 auto; }
+.contact-social { display: flex; gap: 12px; margin-top: 18px; }
+.contact-social a {
+  width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center;
+  color: var(--lilac-dark); background: var(--lilac-soft2);
+  border: 1px solid rgba(138,58,82,.14); transition: background .2s, color .2s;
+}
+.contact-social a:hover { background: var(--lilac-dark); color: #fff; }
+.contact-social svg { width: 20px; height: 20px; }
