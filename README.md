@@ -9,7 +9,7 @@ Faqe statike (HTML / CSS / JavaScript), pa varësi nga ndonjë framework — hap
 
 ```
 index.html        # Faqja kryesore (një faqe, me seksione)
-styles.css        # Stilet dhe paleta rozë e artë
+styles.css        # Stilet dhe paleta krem, blush dhe kafe kakao
 script.js         # Menyja mobile, efekti i shkrimit dore, animacionet, formulari WhatsApp
 assets/
   favicon.png     # Ikona me simbolin e fytyrës nga logoja Lona
@@ -22,7 +22,7 @@ sitemap.xml       # Sitemap-i i faqes së vetme
 ```
 
 Logoja reale e klinikës përdoret në header dhe footer. Faviconi përdor simbolin e fytyrës
-nga logoja, mbi sfondin rozë të markës.
+nga logoja, mbi sfondin krem të markës.
 
 ## Seksionet
 - **Hyrje (Hero)** — fokus te "masazhe në Fier" + thirrja për rezervim
@@ -40,8 +40,9 @@ nga logoja, mbi sfondin rozë të markës.
 - `robots.txt` dhe `sitemap.xml` për indeksimin e faqes së vetme
 
 ## Paleta e ngjyrave
-- Rozë e butë dhe rozë e thellë për sfondet, titujt dhe butonat
-- Ari për detajet dhe theksimet
+- Krem dhe blush i lehtë për sfondet
+- Kafe kakao për tekstin dhe butonat
+- Karamel për detajet dhe theksimet
 
 Ngjyrat ndryshohen te `:root` në fillim të `styles.css`.
 
