@@ -15,6 +15,8 @@
   });
 
   // Shkrim dore i vërtetë me Vara.js — fjala vizatohet me pendë (pa kursor, pa "prerje").
+  // Teksti statik (.hw-fallback) rri gjithmonë; animacioni e zëvendëson VETËM kur Vara ia del,
+  // kështu që fjala nuk mbetet kurrë bosh (p.sh. nëse fonti s'ngarkohet në file://).
   const hwEl = document.getElementById("hw-word");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const hwWords = ["qetësi", "relaksim", "mirëqenie"];
@@ -22,31 +24,43 @@
   function heroFontPx() {
     const h1 = hwEl ? hwEl.closest("h1") : null;
     const sz = h1 ? parseFloat(getComputedStyle(h1).fontSize) : 56;
-    return Math.max(34, Math.round(sz * 0.96));
+    return Math.max(34, Math.round(sz * 0.9));
   }
 
   if (hwEl && window.Vara && !reduceMotion) {
+    // Fonti si data-URL inline => punon edhe me file:// (pa asnjë kërkesë rrjeti/skedari).
+    const fontSrc = window.__SATISFY_FONT_URL || "assets/vara/Satisfy.json";
     let idx = 0;
+    let everDrew = false;
     const draw = function () {
-      hwEl.innerHTML = "";
-      const v = new Vara("#hw-word", "assets/vara/Satisfy.json", [{
-        text: hwWords[idx],
-        fontSize: heroFontPx(),
-        strokeWidth: 1.7,
-        color: "#f4dca0",
-        duration: 1700,
-        textAlign: "left",
-        y: 8
-      }], { autoAnimation: true });
+      try {
+        hwEl.innerHTML = "";
+        const v = new Vara("#hw-word", fontSrc, [{
+          text: hwWords[idx],
+          fontSize: heroFontPx(),
+          strokeWidth: 1.7,
+          color: "#f4dca0",
+          duration: 1700,
+          textAlign: "left",
+          y: 8
+        }], { autoAnimation: true });
 
-      v.ready(function () {
-        v.animationEnd(function () {
-          window.setTimeout(function () {
-            idx = (idx + 1) % hwWords.length;
-            draw();
-          }, 1900);
+        v.ready(function () {
+          everDrew = true;
+          v.animationEnd(function () {
+            window.setTimeout(function () {
+              idx = (idx + 1) % hwWords.length;
+              draw();
+            }, 1900);
+          });
         });
-      });
+      } catch (e) {
+        hwEl.textContent = hwWords[idx];
+      }
+      // Rrjetë sigurie: nëse Vara s'vizaton dot (rast ekstrem), ktheji fjalën statike — kurrë bosh.
+      window.setTimeout(function () {
+        if (!everDrew && !hwEl.querySelector("svg")) { hwEl.textContent = hwWords[idx]; }
+      }, 3500);
     };
     draw();
   } else if (hwEl) {
