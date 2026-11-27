@@ -20,6 +20,8 @@
   const hwEl = document.getElementById("hw-word");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const hwWords = ["qetësi", "relaksim", "mirëqenie"];
+  // Nudje vertikale (në em) për të ulur fjalët pa ngjitëse të ulëta, që baseline-i të përputhet.
+  const HW_NUDGE = { "qetësi": 0, "relaksim": 0.2, "mirëqenie": 0.2 };
 
   function heroFontPx() {
     const h1 = hwEl ? hwEl.closest("h1") : null;
@@ -48,6 +50,10 @@
 
         v.ready(function () {
           everDrew = true;
+          // Vara kropon SVG-në ndryshe sipas lartësisë së ngjitëseve të çdo fjale, ndaj baseline-i
+          // kërcen. E korrigjojmë me një nudje vertikale për-fjalë (në em => responsive).
+          const svg = hwEl.querySelector("svg");
+          if (svg) { svg.style.transform = "translateY(" + (HW_NUDGE[hwWords[idx]] || 0) + "em)"; }
           v.animationEnd(function () {
             window.setTimeout(function () {
               idx = (idx + 1) % hwWords.length;
