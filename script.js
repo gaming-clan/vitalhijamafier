@@ -42,6 +42,7 @@
           color: "#f4dca0",
           duration: 1700,
           textAlign: "left",
+          letterSpacing: -2,
           y: 8
         }], { autoAnimation: true });
 
