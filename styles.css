@@ -127,7 +127,7 @@ a:hover { color: var(--lilac); }
 .hero h1 { font-size: clamp(2.8rem, 5.4vw, 4.8rem); margin-bottom: 22px; color: #fff; text-shadow: 0 2px 16px rgba(60,38,48,.3); line-height: 1.03; }
 .hero .script { color: var(--gold-light); }
 /* Fjala me shkrim dore: teksti statik është fallback; Vara.js vizaton një SVG brenda */
-.hero .hw-word { display: inline-block; min-width: 8ch; vertical-align: -.18em;
+.hero .hw-word { display: inline-block; min-width: 8ch; vertical-align: -.34em;
   color: var(--gold-light); font-family: var(--font-script); font-weight: 700; }
 .hero .hw-word svg { display: inline-block; overflow: visible; height: 1.15em; width: auto; }
 .hero .hw-word svg path { stroke: #f4dca0; }
