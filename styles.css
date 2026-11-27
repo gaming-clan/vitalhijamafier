@@ -288,6 +288,8 @@ a:hover { color: var(--lilac); }
 .footer-brand p { color: #e5d2c6; font-size: .92rem; max-width: 320px; margin-top: 12px; }
 .footer-links, .footer-social { display: flex; flex-direction: column; gap: 10px; }
 .footer-links a, .footer-social a { color: #f3e4db; font-size: .92rem; }
+.footer-social a { display: inline-flex; align-items: center; gap: 9px; }
+.footer-social svg { width: 20px; height: 20px; flex: 0 0 auto; }
 .footer-links a:hover, .footer-social a:hover { color: var(--lilac-light); }
 .footer-partners { padding: 0 22px 30px; }
 .footer-partners h2 { color: #fff7f3; font: 500 1rem var(--font-body); margin-bottom: 12px; }
