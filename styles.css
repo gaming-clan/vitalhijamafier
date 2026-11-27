@@ -126,8 +126,11 @@ a:hover { color: var(--lilac); }
 .hero .eyebrow { color: #fdeef2; }
 .hero h1 { font-size: clamp(2.8rem, 5.4vw, 4.8rem); margin-bottom: 22px; color: #fff; text-shadow: 0 2px 16px rgba(60,38,48,.3); line-height: 1.03; }
 .hero .script { color: var(--gold-light); }
-.hero .typing-text { display: inline-block; min-width: 9ch; clip-path: inset(0 100% 0 0); animation: handwriting-reveal 1.35s ease-out forwards; }
-@keyframes handwriting-reveal { to { clip-path: inset(0 0 0 0); } }
+/* Fjala me shkrim dore (Vara.js vizaton një SVG brenda; teksti statik është fallback) */
+.hero .hw-word { display: inline-block; min-width: 8ch; min-height: 1.1em; vertical-align: -.18em;
+  color: var(--gold-light); font-family: var(--font-script); font-weight: 700; }
+.hero .hw-word svg { display: inline-block; overflow: visible; height: 1.15em; width: auto; }
+.hero .hw-word svg path { stroke: #f4dca0; }
 .hero-sub { font-size: 1.02rem; font-weight: 400; max-width: 590px; margin: 0 0 28px; color: #fff8fa; }
 .hero-sub strong { font-weight: 600; }
 .hero-actions { display: flex; gap: 14px; justify-content: flex-start; flex-wrap: wrap; margin-bottom: 28px; }

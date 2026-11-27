@@ -14,23 +14,43 @@
     a.href = waBase + "?text=" + encodeURIComponent(CONFIG.whatsappText);
   });
 
-  // Zbulim si shkrim dore, me rishfaqje të fjalëve pa kursor.
-  const handwriting = document.querySelector("[data-handwriting]");
+  // Shkrim dore i vërtetë me Vara.js — fjala vizatohet me pendë (pa kursor, pa "prerje").
+  const hwEl = document.getElementById("hw-word");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (handwriting && !reduceMotion) {
-    const words = ["qetësi", "relaksim", "mirëqenie"];
-    let wordIndex = 0;
+  const hwWords = ["qetësi", "relaksim", "mirëqenie"];
 
-    function drawNextWord() {
-      wordIndex = (wordIndex + 1) % words.length;
-      handwriting.textContent = words[wordIndex];
-      handwriting.style.animation = "none";
-      void handwriting.offsetWidth;
-      handwriting.style.animation = "";
-      window.setTimeout(drawNextWord, 3600);
-    }
+  function heroFontPx() {
+    const h1 = hwEl ? hwEl.closest("h1") : null;
+    const sz = h1 ? parseFloat(getComputedStyle(h1).fontSize) : 56;
+    return Math.max(34, Math.round(sz * 0.96));
+  }
 
-    window.setTimeout(drawNextWord, 4200);
+  if (hwEl && window.Vara && !reduceMotion) {
+    let idx = 0;
+    const draw = function () {
+      hwEl.innerHTML = "";
+      const v = new Vara("#hw-word", "assets/vara/Satisfy.json", [{
+        text: hwWords[idx],
+        fontSize: heroFontPx(),
+        strokeWidth: 1.7,
+        color: "#f4dca0",
+        duration: 1700,
+        textAlign: "left",
+        y: 8
+      }], { autoAnimation: true });
+
+      v.ready(function () {
+        v.animationEnd(function () {
+          window.setTimeout(function () {
+            idx = (idx + 1) % hwWords.length;
+            draw();
+          }, 1900);
+        });
+      });
+    };
+    draw();
+  } else if (hwEl) {
+    hwEl.textContent = "qetësi";
   }
 
   // --- Menyja mobile ---
